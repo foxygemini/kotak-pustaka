@@ -33,7 +33,7 @@ process.errorLog = require("./../log/error");
 const i18n = require("i18n");
 i18n.configure({
   locales:['en'],
-  directory: `${process.connectionLibsPath}/i18n`,
+  directory: `./../../kotak-zokonek/i18n`,
   objectNotation: true,
   updateFiles: false
 });

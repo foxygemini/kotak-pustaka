@@ -1,6 +1,16 @@
 {
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "kotak-pustaka",
+    "name": "kotak-pustaka",
+    "escapedName": "kotak-pustaka",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
   "name": "kotak-pustaka",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Semua pustaka disini untuk saya :p",
   "main": "index.js",
   "scripts": {
