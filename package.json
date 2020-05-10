@@ -10,7 +10,7 @@
     "fetchSpec": "latest"
   },
   "name": "kotak-pustaka",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Semua pustaka disini untuk saya :p",
   "main": "index.js",
   "scripts": {

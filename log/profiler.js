@@ -11,13 +11,20 @@ const chalk = require("chalk");
  * @param {string} fileName On which file error triggered
  * @param {string} lineNumber On which line error triggered
  * @param {string} scene What meta data provided to support analize the error
- * @param {*} [data] - if want to trace to level data
  * @param {*} [scene=process.scene] - if want to trace to level data
+ * @param {*} [data] - if want to trace to level data
  * @example
  * process.traceLog("info", "This action trace", __filename, __linenumber);
  */
-module.exports = (status, message, filename, linenumber, data, scene) => {  
+module.exports = (status, message, filename, linenumber, scene, data) => {
   if(process.env.NODE_ENV=='production') return;
+  if(typeof arguments[5] === "undefined"){
+    if(typeof this.arguments[4] != 'string'){
+      data = scene;
+      scene = process.scene;
+      
+    }
+  }
   if(!scene) scene = process.scene;
 
   /**
