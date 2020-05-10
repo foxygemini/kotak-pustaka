@@ -26,7 +26,9 @@ module.exports = async (subject, err, fileName, lineNumber, metaData, caller) =>
     scope.setExtra("App Name", `${process.env.APP_NAME} (${process.env.NODE_ENV})`);
     scope.setExtra("File Name", fileName);
     scope.setExtra("Line number", lineNumber);
-    scope.setExtra("Data passed", `${metaData?metaData:"-"}`);
+    if(metaData){
+      scope.setExtra("Data passed", metaData);
+    }
   });
   Sentry.captureException(err);
 }
