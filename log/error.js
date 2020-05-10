@@ -17,6 +17,12 @@ const Sentry = require("@sentry/node");
  */
 module.exports = async (subject, err, fileName, lineNumber, metaData, caller) => {
   process.traceLog('error', subject, fileName, lineNumber, {err, metaData}, caller);
+  if(typeof caller == "undefined"){
+    if(typeof metaData == "string"){
+      caller = metaData;
+      metaData = undefined;
+    }
+  }
   Sentry.configureScope(scope => {
     scope.setExtra("Subject", subject);
     scope.setExtra("Happen on", process.env.SETUP_AT);
