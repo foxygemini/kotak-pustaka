@@ -11,12 +11,19 @@ const chalk = require("chalk");
  * @param {string} fileName On which file error triggered
  * @param {string} lineNumber On which line error triggered
  * @param {string} [caller] - Trace if request from another machine
- * @param {*} [data] - if want to trace to level data
+ * @param {object} [data] - if want to trace to level data
  * @example
  * process.traceLog("info", "This action trace", __filename, __linenumber);
  */
 module.exports = (status, message, filename, linenumber, data, caller) => {
   if(process.env.NODE_ENV=='production') return;
+
+  if(typeof caller == "undefined"){
+    if(typeof data == "string"){
+      caller = data;
+      data = undefined;
+    }
+  }
 
   /**
    * Render message by it's status
