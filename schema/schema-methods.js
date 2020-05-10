@@ -51,26 +51,18 @@ module.exports = (modelSchema) => {
   /**
    * Soft delete single object from database
    */
-  modelSchema.static('deleteSingle', function(query, executor, cb) {
+  modelSchema.static('deleteSingle', function(query, cb) {
     return this.updateOne(query, {
-      deleted: true,
-      deletedAt: new Date(),
-      deletedById: executor._id?executor._id:null,
-      deletedByType: executor.userType,
-      deletedByName: executor.fullName
+      deleted: true
     }, cb);
   });
 
   /**
    * Soft delete multi object from database
    */
-  modelSchema.static('deleteMultiple', function(query, executor, cb) {
+  modelSchema.static('deleteMultiple', function(query, cb) {
     return this.updateMany(query, {
-      deleted: true,
-      deletedAt: new Date(),
-      deletedById: executor._id?executor._id:null,
-      deletedByType: executor.userType,
-      deletedByName: executor.fullName
+      deleted: true
     }, cb);
   })
 }
