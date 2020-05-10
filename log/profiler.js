@@ -19,7 +19,7 @@ const chalk = require("chalk");
 module.exports = (status, message, filename, linenumber, scene, data) => {
   if(process.env.NODE_ENV=='production') return;
   if(typeof arguments[5] === "undefined"){
-    if(typeof this.arguments[4] != 'string'){
+    if(typeof arguments[4] != 'string'){
       data = scene;
       scene = process.scene;
       
