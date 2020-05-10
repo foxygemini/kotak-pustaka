@@ -20,7 +20,7 @@ const whereParse = options => {
 }
 
 module.exports = (model, method, options, callback) => {
-  process.traceLog("info", "Start do model query", __filename, __linenumber, process.scene, {model, method, options});
+  process.traceLog("info", "Start do model query", __filename, __linenumber, {model, method, options});
   let modelObj;
   const whereQuery = whereParse(options);
 

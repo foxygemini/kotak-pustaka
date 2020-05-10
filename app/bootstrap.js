@@ -27,6 +27,7 @@ Object.defineProperty(global, '__function', {
 const Sentry = require('@sentry/node');
 Sentry.init({ dsn: process.env.SENTRY_DSN });
 
+process.scene = process.env.APP_NAME;
 process.traceLog = require("./../log/profiler");
 process.errorLog = require("./../log/error");
 
